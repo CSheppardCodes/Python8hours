@@ -1,2 +1,11 @@
-name = input('What is your name?\n')
-print('Hellooooo ' + name)
+#fundimental datatypes
+# print(2**3)
+# print(5//4)
+# print(5%4)
+
+#actions
+print(round(3.1))
+print(abs(-20))
+
+
+
