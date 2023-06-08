@@ -1,3 +1,9 @@
+birth_year = input('What year where you born\n')
+age = 2023 - int(birth_year)
+print(f'Your age is {age}')
+
+print(bool(-0))  #anything other than 0/-0 is true
+
 #string methods
 quote = 'to be or not to be'
 print(quote.upper())  #returns string all in upper
