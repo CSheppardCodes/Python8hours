@@ -1,3 +1,5 @@
+import Exercise_password_checker
+
 birth_year = input('What year where you born\n')
 age = 2023 - int(birth_year)
 print(f'Your age is {age}')
