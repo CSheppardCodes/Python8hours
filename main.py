@@ -1,3 +1,4 @@
+import lists
 import Exercise_password_checker
 
 birth_year = input('What year where you born\n')
