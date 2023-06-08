@@ -1,7 +1,26 @@
+#string methods
+quote = 'to be or not to be'
+print(quote.upper())  #returns string all in upper
+print(quote.capitalize())  #returns string first letter capitalized
+print(quote.find('be'))  #returns index of first letter found
+print(quote.replace('be', 'me'))  #returns new string with replacement
+print(quote)  #string is not mutated
+
+#len function
+greet = 'hellooo'
+print(len(greet))
+print(greet[0:len(greet)])
+
+#strings
+#strings are immutable
+print("You can't do string = '123' then string[0] = 4")
+selfish = '01234567'
+print(selfish[::-2])  #easy reverse string
+
 name, age = input("what is your name and age\n").split()
 
 print(f'Hi {name} you are {age} years old')
-
+#alternative = .format(varaible,v2)
 weather = "\t It's \"kind of \" sunny \\\n how are you"
 print(weather)
 
