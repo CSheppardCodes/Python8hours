@@ -9,28 +9,31 @@ jsondata = myjsonfile.read()
 obj = json.loads(jsondata)
 
 #display json contents
-print(str(obj['id']))
-numfloors = obj['floor_priority']
-print(str(obj['two_bays']))
 bayslist = obj['two_bays']
-print(len(bayslist))
+print(bayslist.sort(reverse = True))
+print(bayslist)
+print(type(bayslist))
+print(bayslist)
+#add second list befor turning to string
+bayslistSTR = (str(x) for x in bayslist)
+print (bayslistSTR)
 
-#for i in range(len(bayslist)):
-
-print(str(obj['max_reservations_in_section']))
 
 Location = obj['name'].capitalize() + ' (' + obj['id'] + ')'
-Floor_Priority = '\tFloor Priority: ' + str(numfloors[0]) + ',' + str(
-  numfloors[1])  #make forloop
-Max_Reserve = '\tMax Reservations in Section: ' + str(
-  obj['max_reservations_in_section'])
-#for i in range(len(bayslist)):##sort first if mdutil does not do list sort
+numfloors = obj['floor_priority']
+Floor_Priority = ','.join(map(str, numfloors))
+Floor_Priority = '\tFloor Priority: ' + Floor_Priority
+Max_Reserve = '\tMax Reservations in Section: ' + str(obj['max_reservations_in_section'])
+Two_Bays = "\tTwo_Bays"
+
 
 mdFile = MdUtils(file_name='Example_markdon', title='markdown file example')
 mdFile.new_header(level=1, title=Location)
-mdFile.new_line(Floor_Priority)
+mdFile.new_line(str(Floor_Priority))
 mdFile.new_line(Max_Reserve)
-
+mdFile.new_line(Two_Bays)
+#mdFile.new_line(str(bayslist))
+mdFile.new_list(bayslistSTR)
 mdFile.create_md_file()
 
 # #md
