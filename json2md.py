@@ -24,7 +24,7 @@ numfloors = obj['floor_priority']
 Floor_Priority = ','.join(map(str, numfloors))
 Floor_Priority = '\tFloor Priority: ' + Floor_Priority
 Max_Reserve = '\tMax Reservations in Section: ' + str(obj['max_reservations_in_section'])
-Two_Bays = "\tTwo_Bays"
+Two_Bays = "\tTwo_Bays:"
 
 
 mdFile = MdUtils(file_name='Example_markdon', title='markdown file example')

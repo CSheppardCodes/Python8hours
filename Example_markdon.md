@@ -6,7 +6,7 @@ markdown file example
   
 	Floor Priority: 2,1  
 	Max Reservations in Section: 2  
-	Two_Bays
+	Two_Bays:
 - 237
 - 233
 - 231
