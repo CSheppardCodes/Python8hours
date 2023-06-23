@@ -25,7 +25,7 @@ def generate_markdown(json_data):
 
   # Generate the lis values with bullet points
   for num in sorted(lis, reverse=True):
-    output += f"\t - {num}-{num + 1}\n"
+    output += f"- {num}-{num + 1}\n"
 
   return output
 
