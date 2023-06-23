@@ -13,15 +13,26 @@ def generate_markdown(json_data):
   max_res = json_data["max_reservations_in_section"]
 
   # Generate the output string
-  output += f" # {name.capitalize()} ({id})\n"
-  output += f"Floor Priority: {','.join(str(x) for x in floor_priority)}\n\n"
-  output += f"Max Reservations in Section: {max_res}\n\n"
+  output += f" # {name.title()} ({id})\n"
+  output += f"**Floor Priority:** {','.join(str(x) for x in floor_priority)}\n\n"
+  output += f"**Max Reservations in Section:** {max_res}\n\n"
   #error with \n\n vs \n not working in github preview
-  output += "Two Bays:\n"
+  output += "**Two Bays:**\n"
 
-  # Generate the list values with bullet points
-  for num in sorted(bays, reverse=True):
-    output += f"- {num}-{num + 1}\n"
+  # Group the bays values by the first digit
+  grouped_bays = {}
+  for num in bays:
+    first_digit = str(num)[0]
+    if first_digit in grouped_bays:
+      grouped_bays[first_digit].append(num)
+    else:
+      grouped_bays[first_digit] = [num]
+
+  # Generate the bays values with the desired format
+  for _, nums in sorted(grouped_bays.items(), reverse=True):
+    output += "- "
+    output += ", ".join(f"{n}-{n+1}" for n in sorted(nums))
+    output += "\n"
 
   return output
 
