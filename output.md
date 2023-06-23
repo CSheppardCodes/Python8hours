@@ -1,7 +1,7 @@
  # Dallas (5)
-    FP: 2, 1
-MRIS: 2
-	lis:
+Floor Priority: 2,1
+Max Reservations in Section: 2
+Two Bays:
 - 237-238
 - 233-234
 - 231-232

@@ -1,5 +1,6 @@
 import json
 
+
 def generate_markdown(json_data):
   output = ""
 
@@ -7,14 +8,14 @@ def generate_markdown(json_data):
   id = json_data["id"]
   floor_priority = json_data["floor_priority"]
   name = json_data["name"]
-  bays= json_data["two_bays"]
+  bays = json_data["two_bays"]
   max_res = json_data["max_reservations_in_section"]
 
   # Generate the output string
   output += f" # {name.capitalize()} ({id})\n"
-  output += f"    FP: {', '.join(str(x) for x in floor_priority)}\n"
-  output += f"MRIS: {max_res}\n"
-  output += "\tlis:\n"
+  output += f"Floor Priority: {','.join(str(x) for x in floor_priority)}\n"
+  output += f"Max Reservations in Section: {max_res}\n"
+  output += f"Two Bays:\n"
 
   # Generate the lis values with bullet points
   for num in sorted(bays, reverse=True):
