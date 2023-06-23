@@ -1,4 +1,4 @@
- # Dallas (5)  \Floor Priority: 2,1  \Max Reservations in Section: 2  \Two Bays:
+ # Dallas (5)  \  Floor Priority: 2,1  \  Max Reservations in Section: 2  \  Two Bays:
 - 237-238
 - 233-234
 - 231-232
