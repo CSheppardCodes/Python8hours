@@ -14,8 +14,8 @@ def generate_markdown(json_data):
   # Generate the output string
   output += f" # {name.capitalize()} ({id})\n"
   output += f"Floor Priority: {','.join(str(x) for x in floor_priority)}\n\n"
-  output += f"Max Reservations in Section: {max_res}\n"
-  output += f"Two Bays:\n"
+  output += f"Max Reservations in Section: {max_res}\n\n"#error with \n\n vs \n not working in github preview
+  output += f"Two Bays:\n" 
 
   # Generate the lis values with bullet points
   for num in sorted(bays, reverse=True):
