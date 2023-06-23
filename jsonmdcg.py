@@ -12,9 +12,9 @@ def generate_markdown(json_data):
   max_res = json_data["max_reservations_in_section"]
 
   # Generate the output string
-  output += f" # {name.capitalize()} ({id})\n"
-  output += f"Floor Priority: {','.join(str(x) for x in floor_priority)}\n"
-  output += f"Max Reservations in Section: {max_res}\n"
+  output += f" # {name.capitalize()} ({id})  \\"
+  output += f"Floor Priority: {','.join(str(x) for x in floor_priority)}  \\"
+  output += f"Max Reservations in Section: {max_res}  \\"
   output += f"Two Bays:\n"
 
   # Generate the lis values with bullet points
