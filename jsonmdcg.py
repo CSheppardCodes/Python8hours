@@ -6,22 +6,22 @@ def generate_markdown(json_data):
   output = ""
 
   # Extract values from the JSON data
-  id = json_data["id"]
-  floor_priority = json_data["floor_priority"]
-  name = json_data["name"]
-  bays = json_data["two_bays"]
-  max_res = json_data["max_reservations_in_section"]
+  i = json_data["i"]
+  f = json_data["f"]
+  n = json_data["n"]
+  t = json_data["t"]
+  m = json_data["m"]
 
   # Generate the output string
-  output += f" # {name.title()} ({id})\n"
-  output += f"**Floor Priority:** {','.join(str(x) for x in floor_priority)}\n\n"
-  output += f"**Max Reservations in Section:** {max_res}\n\n"
+  output += f" # {n.title()} ({i})\n"
+  output += f"**Floor Priority:** {','.join(str(x) for x in f)}\n\n"
+  output += f"**Max Reservations in Section:** {m}\n\n"
   #error with \n\n vs \n not working in github preview
   output += "**Two Bays:**\n"
 
   # Group the bays values by the first digit
   grouped_bays = {}
-  for num in bays:
+  for num in t:
     first_digit = str(num)[0]
     if first_digit in grouped_bays:
       grouped_bays[first_digit].append(num)
@@ -37,18 +37,22 @@ def generate_markdown(json_data):
   return output
 
 
-# Get a list of JSON file paths in alphabetical order
-file_paths = sorted(glob.glob("*.json"), reverse=True)
+# Get a list of JSON file paths
+file_paths = glob.glob("*.json")
+
+# Read the JSON data and sort the file paths based on "n": "d" value
+sorted_file_paths = sorted(file_paths,
+                           key=lambda path: json.load(open(path))["n"])
 
 # Process each JSON file
 markdown_output = ""
-for file_path in file_paths:
+for file_path in sorted_file_paths:  ###file_paths
   # Read the JSON data from the file
   with open(file_path, "r") as file:
     json_data = json.load(file)
 
   # Check if the value of "name" is a string
-  if isinstance(json_data["name"], str):
+  if isinstance(json_data["n"], str):
     # Generate the markdown output for the valid JSON data
     markdown_output += generate_markdown(json_data)
 
